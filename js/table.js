@@ -110,6 +110,7 @@ const table = [
 export function Table() {
     const tableBody = document.getElementById("tableBody");
     const tableBody1 = document.getElementById("tableBody1");
+
     for (let i = 0; i < table.length; i += 2) {
         const rowData1 = table[i];
         const rowData2 = table[i + 1];

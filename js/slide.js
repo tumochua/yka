@@ -3,7 +3,8 @@ export function Slide() {
     document.addEventListener('DOMContentLoaded', function () {
         const openModalBtn = document.getElementById('openModalBtn');
         const imageModal = document.getElementById('imageModal');
-        const closeBtn = document.querySelector('.close-modal-preview');
+        const spanClose = document.querySelector('.close-modal-preview');
+        const btnClose = document.getElementById('close-modal-preview');
         const imageInput = document.getElementById('imageInput');
         const imagePreview = document.getElementById('imagePreview');
         const startSlideshowBtn = document.getElementById('startSlideshow');
@@ -19,9 +20,12 @@ export function Slide() {
         });
 
         // Đóng modal khi ấn nút đóng hoặc click ngoài modal
-        closeBtn.addEventListener('click', function () {
+        spanClose.addEventListener('click', function () {
             imageModal.style.display = 'none';
         });
+        btnClose.addEventListener("click", function () {
+            imageModal.style.display = 'none';
+        })
 
         let imagesArray = []; // Mảng để lưu ảnh
         let imageUrls = [];
@@ -47,9 +51,9 @@ export function Slide() {
                 span.setAttribute("id", "icon-delete-img-preview");
 
                 img.src = URL.createObjectURL(imageInput.files[i]);
-                const imgInfo = { id: imgId, element: img };
+                const imgInfo = { id: imgId, element: img, src: img.src };
                 imagesArray.push(imgInfo);
-                imagesArray.push(img.src); // Lưu URL vào mảng
+                // imagesArray.push(img.src); // Lưu URL vào mảng
 
                 img.addEventListener('click', function () {
                     openSlideshow(i);
@@ -82,8 +86,9 @@ export function Slide() {
 
         function getUrlImg(imagesArray) {
             for (var i = 0; i < imagesArray.length; i++) {
-                if (typeof imagesArray[i] === 'string' && imagesArray[i].startsWith('blob:')) {
-                    imageUrls.push(imagesArray[i]);
+                // console.log("imagesArray", imagesArray[i]);
+                if (typeof imagesArray[i].src === 'string' && imagesArray[i].src.startsWith('blob:')) {
+                    imageUrls.push(imagesArray[i].src);
                 }
             }
         }
@@ -96,6 +101,7 @@ export function Slide() {
             if (imageIndex !== -1) {
                 // Lấy thông tin ảnh từ mảng
                 const removedImage = imagesArray.splice(imageIndex, 1)[0];
+                console.log("removedImage", removedImage);
                 const imageElement = removedImage.element;
 
                 // Kiểm tra xem phần tử có tồn tại trong DOM không trước khi xóa
@@ -109,6 +115,7 @@ export function Slide() {
                     }
                 }
             }
+            // console.log(imagesArray);
         }
 
 
@@ -122,12 +129,12 @@ export function Slide() {
             }
         }
 
+        // console.log("imageUrls", imageUrls);
     });
 
 
-
     function createPrevireImg(imagesArray) {
-        // console.log(imagesArray);
+        console.log(imagesArray);
         const slideshowContainer = document.querySelector('.slideshow-container');
         const dotContainer = document.querySelector('.dot-container');
         // Tạo slide và dấu chấm tương ứng từ mảng imagesArray
