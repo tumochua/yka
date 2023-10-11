@@ -111,6 +111,7 @@ export function Table() {
     const tableBody = document.getElementById("tableBody");
     const tableBody1 = document.getElementById("tableBody1");
 
+
     for (let i = 0; i < table.length; i += 2) {
         const rowData1 = table[i];
         const rowData2 = table[i + 1];
@@ -123,7 +124,6 @@ export function Table() {
         const cell2 = document.createElement("td");
         const input1 = document.createElement("input");
 
-        // cell2.textContent = rowData1.value || "0";
         input1.type = "number";
         input1.value = rowData1.value || "0";
         input1.classList.add("input-size");
@@ -139,7 +139,6 @@ export function Table() {
         const cell3 = document.createElement("td");
         cell3.textContent = rowData2.name2 || "";
         const cell4 = document.createElement("td");
-        // cell4.textContent = rowData2.value2 || "0";
 
         const input2 = document.createElement("input");
         input2.type = "number";
@@ -210,3 +209,4 @@ export function Table() {
         tableBody1.appendChild(row);
     }
 }
+
