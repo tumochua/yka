@@ -225,7 +225,7 @@ table {
 th,
 td {
     border: 1px solid #ddd;
-    padding: 8px 25px;
+    padding: 8px 20px;
     text-align: center;
 }
 
@@ -376,184 +376,8 @@ tbody tr:hover {
     cursor: pointer;
 }
 
-@media screen and (max-width: 1200px) {
-    .container {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .modal-content {
-        width: 80% !important;
-    }
-
-    .header-list-warpper {
-        justify-content: flex-start;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    .sibar {
-        border: none;
-        width: 100%;
-        margin-bottom: 50px;
-        padding-bottom: 20px;
-    }
-
-    .form-ID {
-        margin: 10px 0px;
-    }
-
-    .content {
-        width: 100%;
-        padding: 0;
-    }
-
-    .content-h1 {
-        text-align: center;
-        background-color: #f7f9fa;
-        padding: 25px 0;
-        margin: 0px;
-    }
-
-    .body-warpper {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .content-warpper-number {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .status-one,
-    .status-two {
-        width: 100%;
-    }
-
-    .status-three {
-        margin: 0 auto;
-    }
-
-    .total {
-        margin: 20px 0;
-    }
-
-    .status-a {
-        flex-direction: column;
-    }
-
-    .status-b {
-        flex-direction: column;
-    }
-
-    .slider-image {
-
-        width: 30%;
-    }
-
-    .total-warpper {
-        flex-direction: column;
-        width: 100%;
-        font-size: 18px;
-        gap: 0px;
-    }
-
-    .slider-image {
-        width: 90%;
-        padding: 0;
-    }
-
-    .active {
-        left: 0px !important;
-    }
-
-    .close {
-        left: -250px !important;
-    }
-
-    .error {
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .header-list {
-        margin-right: 10px;
-    }
-
-    .header-list-item:nth-child(1) {
-        width: 50%;
-    }
-
-    .header-list-item:nth-child(2) {
-        width: 0%;
-    }
-
-    .header-list-item:nth-child(3) {
-        width: 50%;
-    }
-
-    .header-list-item:nth-child(4) {
-        width: 0%;
-    }
 
 
-    .sibar-warpper {
-        position: static;
-        transform: translateX(0%);
-    }
-
-}
-
-
-@media (max-width: 280px) {
-    .header-list {
-        margin-left: 5px;
-    }
-
-    .header-list-item:nth-child(1) {
-        width: 50%;
-    }
-
-    .header-list-item:nth-child(3) {
-        width: 50%;
-        text-align: center;
-    }
-
-    .modal-language {
-        right: -35px !important;
-    }
-
-    .modal-footer {
-        margin-right: 10px !important;
-    }
-
-    .error {
-        width: 100%;
-    }
-
-}
-
-
-@media screen and (min-width:576px) and (max-width:930px) {
-
-    .sibar-warpper {
-        padding: 0px 15px;
-    }
-
-    .form-ID .form-ID {
-        width: 90%;
-    }
-
-    .input-id {
-        width: 100%;
-    }
-
-}
 
 
 
@@ -847,7 +671,7 @@ tbody tr:hover {
 }
 
 #imagePreview img {
-    width: 180px;
+    width: 120px;
     /* max-height: 200px;
     height: 100%; */
     margin: 20px 5px 5px 5px;
@@ -968,4 +792,208 @@ tbody tr:hover {
 
 #control-slide {
     display: none;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width:930px) {
+
+    .sibar-warpper {
+        padding: 0px 15px;
+    }
+
+    .form-ID .form-ID {
+        width: 90%;
+    }
+
+    .input-id {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:1000px) {
+
+    th,
+    td {
+        padding: 8px 0px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .modal-content {
+        width: 80% !important;
+    }
+
+    .header-list-warpper {
+        justify-content: flex-start;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .sibar {
+        border: none;
+        width: 100%;
+        margin-bottom: 50px;
+        padding-bottom: 20px;
+    }
+
+    .form-ID {
+        margin: 10px 0px;
+    }
+
+    .content {
+        width: 100%;
+        padding: 0;
+    }
+
+    .content-h1 {
+        text-align: center;
+        background-color: #f7f9fa;
+        padding: 25px 0;
+        margin: 0px;
+    }
+
+    .body-warpper {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .content-warpper-number {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .status-one,
+    .status-two {
+        width: 100%;
+    }
+
+    .status-three {
+        margin: 0 auto;
+    }
+
+    .total {
+        margin: 20px 0;
+    }
+
+    .status-a {
+        flex-direction: column;
+    }
+
+    .status-b {
+        flex-direction: column;
+    }
+
+    .slider-image {
+
+        width: 30%;
+    }
+
+    .total-warpper {
+        flex-direction: column;
+        width: 100%;
+        font-size: 18px;
+        gap: 0px;
+    }
+
+    .slider-image {
+        width: 90%;
+        padding: 0;
+    }
+
+    .active {
+        left: 0px !important;
+    }
+
+    .close {
+        left: -250px !important;
+    }
+
+    .error {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .header-list {
+        margin-right: 10px;
+    }
+
+    .header-list-item:nth-child(1) {
+        width: 50%;
+    }
+
+    .header-list-item:nth-child(2) {
+        width: 0%;
+    }
+
+    .header-list-item:nth-child(3) {
+        width: 50%;
+    }
+
+    .header-list-item:nth-child(4) {
+        width: 0%;
+    }
+
+
+    .sibar-warpper {
+        position: static;
+        transform: translateX(0%);
+    }
+
+    .modal-image-slideshow-modal-content {
+        width: 85%;
+    }
+
+    #imagePreview {
+        max-height: 230px;
+    }
+
+    #imagePreview img {
+        width: 100%;
+    }
+
+    #control-slide {
+        display: flex !important;
+    }
+}
+
+
+@media (max-width: 280px) {
+    .header-list {
+        margin-left: 5px;
+    }
+
+    .header-list-item:nth-child(1) {
+        width: 50%;
+    }
+
+    .header-list-item:nth-child(3) {
+        width: 50%;
+        text-align: center;
+    }
+
+    .modal-language {
+        right: -35px !important;
+    }
+
+    .modal-footer {
+        margin-right: 10px !important;
+    }
+
+    .error {
+        width: 100%;
+    }
+
 }
