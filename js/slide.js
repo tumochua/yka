@@ -6,9 +6,11 @@ export function Slide() {
     const hideImgSlideDefault = document.getElementById("default-img-slider");
     const controllSlide = document.getElementById("control-slide");
 
+    // const slideshowContainer = document.querySelector('.slideshow-container');
+    // const dotContainer = document.querySelector('.dot-container');
+
+
     let imagesArray = []; // Mảng để lưu ảnh
-    let coppyImagesArray = [];
-    let check = false;
 
     document.addEventListener('DOMContentLoaded', function () {
         // Mở modal khi ấn nút "Chọn Ảnh"
@@ -17,8 +19,10 @@ export function Slide() {
             if (imagesArray.length > 0) {
                 imagesArray = [];
                 imagePreview.innerHTML = '';
+
+                // Tạo lại giao diện slideshow với ảnh mới
+                createPrevireImg(imagesArray);
             }
-            // isSlideshowStarted = false; // Đặt lại trạng thái khi mở modal
             imageModal.style.display = 'block';
         });
 
@@ -32,6 +36,28 @@ export function Slide() {
 
         // Xem trước ảnh khi chọn từ máy tính và lưu vào mảng
         imageInput.addEventListener('change', function () {
+
+            // Xóa ảnh cũ trong slideshowContainer và dotContainer
+            // const slideshowContainer = document.querySelector('.slideshow-container');
+            // const dotContainer = document.querySelector('.dot-container');
+            // slideshowContainer.innerHTML = '';
+            // dotContainer.innerHTML = '';
+
+            // imagesArray = []; // Xóa dữ liệu cũ trong mảng
+            // imagePreview.innerHTML = '';
+
+            // for (let i = 0; i < imageInput.files.length; i++) {
+            //     const imgId = generateUniqueId();
+            //     const imgInfo = { id: imgId, element: null, src: URL.createObjectURL(imageInput.files[i]) };
+            //     imagesArray.push(imgInfo);
+
+            //     const imgWrapper = createImagePreviewElement(imgInfo, imgId);
+            //     imagePreview.appendChild(imgWrapper);
+            // }
+
+            // // Tạo lại giao diện slideshow với ảnh mới
+            // createPrevireImg(imagesArray);
+
             imagesArray = []; // Xóa dữ liệu cũ trong mảng
             imagePreview.innerHTML = '';
 
@@ -46,8 +72,6 @@ export function Slide() {
         });
 
         // Mở modal slideshow khi ấn nút "Bắt đầu Slideshow"
-
-
         startSlideshowBtn.addEventListener('click', function () {
             imageModal.style.display = 'none';
             if (imagesArray.length > 0) {
@@ -77,9 +101,9 @@ export function Slide() {
         img.src = imgInfo.src;
         imgInfo.element = img;
 
-        img.addEventListener('click', function () {
-            openSlideshow(imagesArray.indexOf(imgInfo));
-        });
+        // img.addEventListener('click', function () {
+        //     openSlideshow(imagesArray.indexOf(imgInfo));
+        // });
 
         icon.addEventListener('click', function () {
             deleteImage(imgId);
@@ -94,7 +118,7 @@ export function Slide() {
     }
 
     function createPrevireImg(imagesArray) {
-        // console.log("imagesArray", imagesArray);
+        console.log("imagesArray", imagesArray);
         const slideshowContainer = document.querySelector('.slideshow-container');
         const dotContainer = document.querySelector('.dot-container');
 
@@ -108,31 +132,32 @@ export function Slide() {
 
         createControllSlide();
 
-        function createSlideElement(slideNumber, imgInfo) {
-            // console.log("slideNumber, imgInfo", slideNumber, imgInfo, imagesArray);
-            const slide = document.createElement('div');
-            slide.classList.add('mySlides');
+    }
+    function createSlideElement(slideNumber, imgInfo) {
+        // console.log("slideNumber, imgInfo", slideNumber, imgInfo, imagesArray);
+        const slide = document.createElement('div');
+        slide.classList.add('mySlides');
 
-            const numbertext = document.createElement('div');
-            numbertext.classList.add('numbertext');
-            numbertext.textContent = slideNumber + ' / ' + imagesArray.length;
+        const numbertext = document.createElement('div');
+        numbertext.classList.add('numbertext');
+        numbertext.textContent = slideNumber + ' / ' + imagesArray.length;
 
-            const img = document.createElement('img');
-            img.src = imgInfo.src;
-            img.style.width = '100%';
+        const img = document.createElement('img');
+        img.src = imgInfo.src;
+        img.classList.add("img-item-slide");
 
-            slide.appendChild(numbertext);
-            slide.appendChild(img);
 
-            return slide;
-        }
+        slide.appendChild(numbertext);
+        slide.appendChild(img);
 
-        function createDotElement(dotNumber) {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.setAttribute("id", `dot${dotNumber}`);
-            return dot;
-        }
+        return slide;
+    }
+
+    function createDotElement(dotNumber) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.setAttribute("id", `dot${dotNumber}`);
+        return dot;
     }
 
     function createControllSlide() {
@@ -187,12 +212,13 @@ export function Slide() {
         }
     }
 
-    function openSlideshow(index) {
-        slideshow.innerHTML = '';
-        for (let i = index; i < imagesArray.length; i++) {
-            const img = document.createElement('img');
-            img.src = imagesArray[i].element.currentSrc;
-            slideshow.appendChild(img);
-        }
-    }
+    // function openSlideshow(index) {
+    //     slideshow.innerHTML = '';
+    //     for (let i = index; i < imagesArray.length; i++) {
+    //         const img = document.createElement('img');
+    //         img.classList.add('item-slide')
+    //         img.src = imagesArray[i].element.currentSrc;
+    //         slideshow.appendChild(img);
+    //     }
+    // }
 }
